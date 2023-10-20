@@ -189,7 +189,7 @@ let identity = {
 
 let resultFromObject = `Je m'appelle ${identity.firstname} ${identity.lastname}, j'ai ${identity.age} ans et j'habite ${identity.town}.`
 
-console.log(resultFromObject)
+// console.log(resultFromObject)
 
 
 // Créer un deuxième objet identity2, stocker identity et identity2  dans un tableau, et écrire la phrase précédente en utilisant le tableau
@@ -203,6 +203,6 @@ let identity2 = {
 
 let arr2 = [identity, identity2]
 
-arr2[1].lastname
+// arr2[1].lastname
 
-// console.log(`Je m'appelle ${arr2[identity.firstname]} ${arr2[identity.lastname]}, j'ai ${arr2[identity.age]} ans et j'habite ${arr2[identity.town]}.`)
+console.log(`Je m'appelle ${arr2[1].firstname} ${arr2[1].lastname}, j'ai ${arr2[1].age} ans et j'habite ${arr2[1].town}.`)
