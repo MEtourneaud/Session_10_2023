@@ -171,18 +171,90 @@ function addUserIfAdmin(user) {
 const town1 = {
     name : "Bordeaux",
     population : 300000,
-    superficy : 50
+    superficy : 50,
+    twinnings : ["Berlin", "Londres", "Madrid", "Libourne"]
 }
 
 const town2 = {
     name : "Lyon",
     population : 500000,
-    superficy : 48
+    superficy : 48,
+    twinnings : ["Berlin", "Londres", "Madrid", "Libourne", "Rennes", "Varsovie"]
+
 }
 
 const town3 = {
     name : "Paris",
     population : 2000000,
-    superficy : 105
+    superficy : 105,
+    twinnings : ["Berlin", "Londres", "Madrid", "Libourne", "Rochefort"]
+
 }
 
+// Ecrire une fonction qui prend 2 paramètres, et qui affiche dans la console , le nom de la plus peuplée des deux
+
+// compareTowns(town3, town2)
+
+const biggerTowns = compareTowns(town3, town2)
+
+console.log(biggerTowns.name)
+
+// function compareTowns(pop1, pop2) {
+//     if (pop1.population > pop2.population) {
+//         console.log(`${pop1.name} est plus grand que ${pop2.name}`)
+//     } else {
+//         console.log(`${pop2.name} est plus grand que ${pop1.name}`)
+//     }
+// }
+
+function compareTowns(pop1, pop2) {
+    if (pop1.population > pop2.population) {
+        return pop1
+    } else {
+        return pop2
+    }
+}
+
+
+// const nb1 = 5
+// const nb2 = 7
+
+// const sum = addTwoParameters(nb1, nb2)
+
+
+// console.log(`Le résultat de la somme de ${nb1} et ${nb2} est égal à ${sum}`)
+
+// function addTwoParameters(arg1, arg2){
+//     const result = arg1 + arg2
+//     return result
+// }
+
+// Ecrire la fonction qui retourne le produit des deux paramètres
+
+const nb1 = 4
+const nb2 = 6
+
+const resultProduct = productOfParameters(nb1, nb2)
+
+
+console.log(`Le résultat du produit de ${nb1} et ${nb2} est égal à ${resultProduct}`)
+
+function productOfParameters(param1, param2) {
+    return param1 * param2
+}
+
+
+
+
+
+//Variante  exercices avec les towns, écrire la fonction qui compare 2 villes en paramètres et qui retourne celle qui a lep plus de jumelage
+
+const biggerTwins = compareTwinnings(town3, town2)
+
+function compareTwinnings(twin1, twin2) {
+    if (twin1.twinnings > twin2.twinnings) {
+        return twin1
+    } else {
+        return town2
+    }
+}
