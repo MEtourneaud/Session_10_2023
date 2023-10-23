@@ -107,12 +107,43 @@ let numbers = [3, 5 , 12, 8, 1, 4]
 
 //A l'aide d'une boucle for, trouver la valeur la plus grande dans le tableau
 
-let max = 0
+// let max = 0
 
-for (let i = 0; i < numbers.length; i++) {
-    if(numbers[i] > max) {
-       max = numbers[i]
+// for (let i = 0; i < numbers.length; i++) {
+//     if(numbers[i] > max) {
+//        max = numbers[i]
+//     }
+// }
+
+// console.log(max)
+
+//Afficher uniquement les nombres strictement supérieurs à 4 ==> 5, 12 ,8
+
+
+ 
+let filterdNumber = []
+
+// for (let i = 0; i < numbers.length; i++) {
+//     if(numbers[i] > 4) {
+//        filterdNumber.push(numbers[i])
+//     }
+// }
+
+// console.log(filterdNumber)
+
+//Encapsuler le script précédent dans un fonction et y ajouter le paramètre limit
+
+const arrayResult = filterArray(7)
+
+function filterArray(limit) {
+    let filterdNumber = []
+
+    for (let i = 0; i < numbers.length; i++) {
+        if(numbers[i] > limit) {
+           filterdNumber.push(numbers[i])
+        }
     }
-}
 
-console.log(max)
+    console.log(filterdNumber)
+    // return filterdNumber
+}
