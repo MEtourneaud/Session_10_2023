@@ -16,33 +16,33 @@
 
 
 
-const person_1 = {
-    name : "Pierre",
-    hasCar : true,
-    hasBike : true,
-    isSick : true
-}
+// const person_1 = {
+//     name : "Pierre",
+//     hasCar : true,
+//     hasBike : true,
+//     isSick : true
+// }
 
-const person_2 = {
-    name : "Mélanie",
-    hasCar : true,
-    hasBike : false,
-    isSick : false
-}
+// const person_2 = {
+//     name : "Mélanie",
+//     hasCar : true,
+//     hasBike : false,
+//     isSick : false
+// }
 
-const person_3 = {
-    name : "Paul",
-    hasCar : false,
-    hasBike : true,
-    isSick : true
-}
+// const person_3 = {
+//     name : "Paul",
+//     hasCar : false,
+//     hasBike : true,
+//     isSick : true
+// }
 
-const person_4 = {
-    name : "Sophie",
-    hasCar : false,
-    hasBike : false,
-    isSick : false
-}
+// const person_4 = {
+//     name : "Sophie",
+//     hasCar : false,
+//     hasBike : false,
+//     isSick : false
+// }
 
 
 
@@ -144,6 +144,59 @@ function filterArray(limit) {
         }
     }
 
-    console.log(filterdNumber)
+    // console.log(filterdNumber)
     // return filterdNumber
+}
+
+
+//Ecrire une boucle FOR pour afficher dans un nouveau tableau toutes les personnes malades (isSick == true)
+
+
+const persons = [ {
+    name : "Pierre",
+    hasCar : true,
+    hasBike : true,
+    isSick : true
+}, {
+    name : "Mélanie",
+    hasCar : true,
+    hasBike : false,
+    isSick : false
+}, {
+    name : "Paul",
+    hasCar : false,
+    hasBike : true,
+    isSick : true
+}, {
+    name : "Sophie",
+    hasCar : false,
+    hasBike : false,
+    isSick : false
+} ]
+
+// let sickPersons = []
+
+// for (let s = 0; s < persons.length; s++) {
+//     if(persons[s].isSick) {
+//        sickPersons.push(persons[s])
+//     }
+// }
+
+// console.log(sickPersons)
+
+// Difficulté supplémentaire, encpsuler la boucle dans une fonction et passer le tableau en paramètre
+
+findSickPeople(persons)
+
+function findSickPeople(sick) {
+    let sickPersons = []
+
+    for (let s = 0; s < sick.length; s++) {
+        if(persons[s].isSick) {
+           sickPersons.push(persons[s])
+        }
+    }
+
+    // return sickPersons;
+    console.log(sickPersons)
 }
