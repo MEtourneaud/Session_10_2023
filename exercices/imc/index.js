@@ -1,3 +1,11 @@
+const BMIData = [
+    { name: "Maigreur", color: "midnightblue", range: [0, 18.5] },
+    { name: "Bonne santé", color: "green", range: [18.5, 25] },
+    { name: "Surpoids", color: "lightcoral", range: [25, 30] },
+    { name: "Obésité modérée", color: "orange", range: [30, 35] },
+    { name: "Obésité sévère", color: "crimson", range: [35, 40] }
+];
+
 //1 - On récupère la balise HTML et on la stocke dans un variable en JS
 const validationBtn = document.querySelector(".validation-btn")
 const resultImc = document.querySelector(".bmi-value")
@@ -40,29 +48,30 @@ function onBtnClick() {
         handleError(`weightError`)
         return
     }
+    // const bmi = Math.round((weight / height ** 2) *100) /100
     const bmi = weight / height ** 2
 
-    resultImc.textContent = bmi
+
+    resultImc.textContent = bmi.toFixed(2)
+
+    //Adapter l'affichage de l'interface, couleur du bmi-value et textContent de comment en fonction de la de bmi
+    //1 - Sélectionner le bon élément dans le tableau
+    //2 - Appliquer le .color et textContent
+
     
+    commentError.textContent = `...`
 
-    console.log(imc)
 }
 
-function checkError() {
-    // Implémenter la condition pour préciser le message d'erreur en fonction de la taille ou du poids
-    // vérifier les données utilisateur, pas de valeurs <= 0
-    if ((!height || height < 0) && (!weight || weight < 0)) {
-        comment.textContent = "Les valeurs saisies dans les champs poids ET taille sont incorrectes"
-        return true
+function handleError(typeError) {
+    //Implémenter la condition pour préciser le message d'erreur en fonction de la taille ou du poids
+    if(typeError == `heightError`) {
+        commentError.textContent = "La valeur saisie dans le champ taille est incorrecte"
+    } else {
+        commentError.textContent = "La valeur saisie dans le champ poids est incorrecte"
+    } 
+    if(typeError == `bothError`) {
+        commentError.textContent = "Les valeurs saisies dans les champ tailles ET poids sont incorrectes"
     }
-    if (!weight || weight < 0) {
-        comment.textContent = "La valeur saisie dans le champ poids est incorrecte"
-        return true
-    }
-    if (!height || height < 0) {
-        comment.textContent = "La valeur saisie dans le champ taille est incorrecte"
-        return true
-    }
-
-    return false
 }
+
