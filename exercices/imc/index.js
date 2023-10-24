@@ -26,6 +26,10 @@ function onBtnClick() {
 
     // vérifier les données utilisateur, pas de valeurs <= 0
 
+    if((!height || height < 0) && (!weight || weight < 0)){
+        handleError(`bothError`)
+        return
+    }
 
     if(!height || height < 0){
         handleError(`heightError`)
@@ -44,7 +48,21 @@ function onBtnClick() {
     console.log(imc)
 }
 
-function handleError(typeError) {
-    //Implémenter la condition pour préciser le message d'erreur en fonction de la taille ou du poids
-    commentError.textContent = "Les valeurs indiquées sont incorrectes"
+function checkError() {
+    // Implémenter la condition pour préciser le message d'erreur en fonction de la taille ou du poids
+    // vérifier les données utilisateur, pas de valeurs <= 0
+    if ((!height || height < 0) && (!weight || weight < 0)) {
+        comment.textContent = "Les valeurs saisies dans les champs poids ET taille sont incorrectes"
+        return true
+    }
+    if (!weight || weight < 0) {
+        comment.textContent = "La valeur saisie dans le champ poids est incorrecte"
+        return true
+    }
+    if (!height || height < 0) {
+        comment.textContent = "La valeur saisie dans le champ taille est incorrecte"
+        return true
+    }
+
+    return false
 }
