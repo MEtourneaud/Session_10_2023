@@ -10,7 +10,7 @@ const BMIData = [
 const validationBtn = document.querySelector(".validation-btn")
 const resultImc = document.querySelector(".bmi-value")
 const inputs = document.querySelectorAll(".bmi-input")
-const commentError = document.querySelector(".comment")
+const comment = document.querySelector(".comment")
 
 //2 - On déclare un click sur le boutton , à chaque fois qu'on clique, on exécute la fonction associée
 validationBtn.addEventListener("click", onBtnClick)
@@ -25,6 +25,7 @@ validationBtn.addEventListener("click", onBtnClick)
 
 
 function onBtnClick() {
+
     const height = inputs[0].value /100
     const weight = inputs[1].value
 
@@ -58,20 +59,34 @@ function onBtnClick() {
     //1 - Sélectionner le bon élément dans le tableau
     //2 - Appliquer le .color et textContent
 
-    
-    commentError.textContent = `...`
+    let oneLineHasBeenFound = false
 
-}
-
-function handleError(typeError) {
-    //Implémenter la condition pour préciser le message d'erreur en fonction de la taille ou du poids
-    if(typeError == `heightError`) {
-        commentError.textContent = "La valeur saisie dans le champ taille est incorrecte"
-    } else {
-        commentError.textContent = "La valeur saisie dans le champ poids est incorrecte"
-    } 
-    if(typeError == `bothError`) {
-        commentError.textContent = "Les valeurs saisies dans les champ tailles ET poids sont incorrectes"
+    for(let b = 0; b < BMIData.length; b++) {   
+        if(bmi > BMIData[b].range[0] && bmi <= BMIData[b].range[1]){
+            resultImc.style.color = BMIData[b].color
+            comment.textContent = BMIData[b].name
+            oneLineHasBeenFound = true
+        }
+    }
+    if(!oneLineHasBeenFound) {
+        resultImc.style.color = `purple`
+        comment.textContent = `obésité morbide`
     }
 }
 
+
+
+function handleError(typeError) {
+    resultImc.textContent = 0
+    resultImc.style.color = `black`
+    
+    //Implémenter la condition pour préciser le message d'erreur en fonction de la taille ou du poids
+    if(typeError == `heightError`) {
+        comment.textContent = "La valeur saisie dans le champ taille est incorrecte"
+    } else {
+        comment.textContent = "La valeur saisie dans le champ poids est incorrecte"
+    } 
+    if(typeError == `bothError`) {
+        comment.textContent = "Les valeurs saisies dans les champ tailles ET poids sont incorrectes"
+    }
+}
