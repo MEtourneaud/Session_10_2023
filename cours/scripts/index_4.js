@@ -29,11 +29,12 @@ for(let n = 0; n < words.length; n++) {
    
 }
 
-console.log(sentence)
+// console.log(sentence)
 
 // -------------------------------
 
 const myTitle = document.querySelector(".my-title")
+const paragraphs = document.querySelectorAll(".my-paragraph")
 
 let setOfColors = [
     {
@@ -75,8 +76,13 @@ function onTitleClick() {
     myTitle.style.backgroundColor = setOfColors[colorIndex].bgColor
     myTitle.style.color = setOfColors[colorIndex].textColor
 
+    for(let i = 0; i < paragraphs.length; i++){
+        paragraphs[i].style.color = setOfColors[colorIndex].textColor
+    }
+    
+
     colorIndex++
-    if(colorIndex == setOfColors.length - 1){
+    if(colorIndex == setOfColors.length){
         colorIndex = 0
     }
 }
