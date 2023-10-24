@@ -2,6 +2,7 @@
 const validationBtn = document.querySelector(".validation-btn")
 const resultImc = document.querySelector(".bmi-value")
 const inputs = document.querySelectorAll(".bmi-input")
+const commentError = document.querySelector(".comment")
 
 //2 - On déclare un click sur le boutton , à chaque fois qu'on clique, on exécute la fonction associée
 validationBtn.addEventListener("click", onBtnClick)
@@ -14,17 +15,36 @@ validationBtn.addEventListener("click", onBtnClick)
 //Afficher dans la console l'imc ==> poids en kg / taille en m²
 
 
-const height = inputs[0].value /100
-const weight = inputs[1].value
 
 function onBtnClick() {
-    let imc = weight /(height * height)
+    const height = inputs[0].value /100
+    const weight = inputs[1].value
 
     // if(inputs[1].value <= 0 || inputs[0].value <= 0) {
     //     console.log("Echec")
     // }
+
+    // vérifier les données utilisateur, pas de valeurs <= 0
+
+
+    if(!height || height < 0){
+        handleError(`heightError`)
+        return
+    }
+
+    if(!weight || weight < 0 ){
+        handleError(`weightError`)
+        return
+    }
+    const bmi = weight / height ** 2
+
     resultImc.textContent = bmi
     
 
     console.log(imc)
+}
+
+function handleError(typeError) {
+    //Implémenter la condition pour préciser le message d'erreur en fonction de la taille ou du poids
+    commentError.textContent = "Les valeurs indiquées sont incorrectes"
 }
