@@ -35,9 +35,48 @@ console.log(sentence)
 
 const myTitle = document.querySelector(".my-title")
 
+let setOfColors = [
+    {
+        bgColor : "black",
+        textColor : "white"
+    },
+    {
+        bgColor : "white",
+        textColor : "black"
+    },
+    {
+        bgColor : "yellow",
+        textColor : "purple"
+    },
+    {
+        bgColor : "green",
+        textColor : "red"
+    }
+]
+
+let colorIndex = 0
+
 myTitle.addEventListener(`click`, onTitleClick)
 // myTitle.textContent = "Hello New World !"
 
 function onTitleClick() {
-    myTitle.textContent = "Hello New World !"
+   
+    // if(myTitle.style.color == `black`) {
+    //     myTitle.textContent = "Hello New World !"
+    //     myTitle.style.backgroundColor = "black"
+    //     myTitle.style.color = "white"
+    // } else {
+    //     myTitle.textContent = "Hello World !"
+    //     myTitle.style.backgroundColor = "white"
+    //     myTitle.style.color = "black"
+    // }
+
+    
+    myTitle.style.backgroundColor = setOfColors[colorIndex].bgColor
+    myTitle.style.color = setOfColors[colorIndex].textColor
+
+    colorIndex++
+    if(colorIndex == setOfColors.length - 1){
+        colorIndex = 0
+    }
 }
