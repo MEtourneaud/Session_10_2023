@@ -2,11 +2,11 @@ body {
     user-select: none;
 }
 
-.myTitle {
+.my-title {
     color: black;
     font-size: 50px;
-    transition-property: background-color, color;
-    transition-duration: 2s, 2s;
+    transition-property: all;
+    transition-duration: 2s;
 }
 
 .container {
@@ -19,4 +19,11 @@ body {
 
 .my-paragraph {
     font-size: 30px;
+}
+
+.text-changed {
+    color: rgb(0, 0, 255);
+    background-color: rgb(255, 0, 0);
+    border-radius: 10px;
+    padding: 5px;
 }

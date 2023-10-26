@@ -151,34 +151,52 @@ const pizzas2 = [
 
 // Ecrire une fonction qui prend en paramètre un tableau de pizzas et qui me retourne la moyenne des prix
 
-const pizzasPriceAbove = getPriceAverage(pizzas)
-console.log(pizzasPriceAbove)
+// const pizzasPriceAbove = getPriceAverage(pizzas)
+// console.log(pizzasPriceAbove)
 
-function getPriceAverage(arr2) {
+// function getPriceAverage(arr2) {
     
-    let sum = 0
-    let moyenne 
+//     let sum = 0
+//     let moyenne 
 
-    for (let n = 0; n < arr2.length; n++) {
-        moyenne = ((sum += arr2[n].price) / arr2.length).toFixed(2)
-    }
-    return moyenne
-}
+//     for (let n = 0; n < arr2.length; n++) {
+//         moyenne = ((sum += arr2[n].price) / arr2.length).toFixed(2)
+//     }
+//     return moyenne
+// }
 
 // Amélioration, la fonction renvoie un tableau de noms de pizzas dont le prix est supérieur à la moyenne
 
-const pizzasNamesAbove = getNamesAboveAverage(pizzas)
-console.log(pizzasNamesAbove)
+// const pizzasNamesAbove = getNamesAboveAverage(pizzas)
+// console.log(pizzasNamesAbove)
 
-function getNamesAboveAverage(arr2) {
+// function getNamesAboveAverage(arr2) {
 
-    let moyenne = getPriceAverage(arr2)
+//     let moyenne = getPriceAverage(arr2)
 
-    let aboveAvg = []
-    for (let n = 1; n < arr2.length; n++) {
-        if (arr2[n].price > moyenne) {
-            aboveAvg.push(arr2[n].name)
-        } 
+//     let aboveAvg = []
+//     for (let n = 1; n < arr2.length; n++) {
+//         if (arr2[n].price > moyenne) {
+//             aboveAvg.push(arr2[n].name)
+//         } 
+//     }
+//     return aboveAvg
+// }
+
+// Ecrire une fonction qui prend 2 paramètres: le premier : un tableau de pizzas, le deuxième : un nom de pizza. La fonction retourne un tableau d'ingrédients de la pizza dont le nom est passé en paramètre. (getPizzaByName(pizzas, 'Margherita') ==> ['mozzarella', 'tomate', 'origan', 'jambon', 'champignons'])
+
+const ingredients = getIngredientsFromName(pizzas, 'Margherita')
+console.log(ingredients)
+
+
+function getIngredientsFromName(arr, pizzaName) {
+    let result = `...`
+
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i].name == pizzaName) {
+            result = arr[i].ingredients
+            break
+        }
     }
-    return aboveAvg
+    return result
 }
