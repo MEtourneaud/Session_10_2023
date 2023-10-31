@@ -66,5 +66,116 @@ function slideInput5 (event) {
 
 
 /**
- * EXO
+ * EXO 1
+ * Click on Me
  */
+const divToColor1 = document.querySelector(`.div-to-color-1`)
+const btns1 = document.querySelectorAll(`.btn-1`)
+
+btns1.forEach((element) => {
+    element.addEventListener(`click`, (event) => {
+        divToColor1.style.backgroundColor = event.currentTarget.getAttribute(`data-bg-color`)
+    })
+})
+
+
+
+/**
+ * EXO 8
+ * Salut tout le monde
+ */
+
+const divToColor8 = document.querySelector(`.div-to-color-8`)
+const btns8 = document.querySelectorAll(`.btn-8`)
+
+btns8.forEach((element) => {
+    element.addEventListener(`click`, (e) => {
+        divToColor8.style.backgroundColor = e.currentTarget.getAttribute(`data-color`)
+    })
+})
+
+
+/**
+ * EXO 7
+ * Pick color
+ */
+
+const input7 = document.querySelector(`.input-7`)
+const divToColor7 = document.querySelector(`.div-to-color-7`)
+input7.addEventListener(`input`, onInput7)
+
+function onInput7 (event) {
+    divToColor7.style.backgroundColor = event.currentTarget.value
+}
+
+
+/**
+ * EXO 6
+ * Programming language
+ */
+
+const select6 = document.querySelector(`.select-6`)
+let textToDisplay6 = document.querySelector(`.text-to-display-6`)
+
+select6.addEventListener(`input`, onSelect6)
+
+function onSelect6 (event) {
+    textToDisplay6.textContent = event.currentTarget.value
+}
+
+
+/**
+ * EXO 3
+ * Trip last
+ */
+
+const textToDisplay4 = document.querySelector('.text-to-display-4')
+const inputs4 = document.querySelectorAll('.input-4')
+
+inputs4.forEach((element) => {
+    element.addEventListener('input', () => {
+        // Affichage des dates dans le textContent
+        textToDisplay4.textContent = `${inputs4[0].value} - ${inputs4[1].value}`
+
+        let date1 = new Date(inputs4[0].value);
+        let date2 = new Date(inputs4[1].value);
+
+        textToDisplay4.textContent = `${(date2 - date1) / (1000 * 60 * 60 * 24)} jours`
+    })
+})
+
+
+/**
+ * EXO 9
+ * Mes intérêts
+ */
+
+const checkboxes = document.querySelectorAll(`.checkbox`)
+let textToDisplay9 = document.querySelector(`.text-to-display-9`)
+
+
+/**
+ * OPERATEUR TERNAIRE, une condition if else écrite sur une ligne, pour affecter une même * * * variable
+ */
+
+checkboxes.forEach((element) => {
+    element.addEventListener(`click`, (e) =>{
+        let value1 = checkboxes[0].checked ? checkboxes[0].value : ``
+        let value2 = checkboxes[1].checked ? checkboxes[1].value : ``
+
+        textToDisplay9.textContent = `${value1} ${value2}`
+
+        // if(checkboxes[0].checked){
+        //     value1 = checkboxes[0].value
+        // } else {
+        //     value1 = ``
+        // }
+        // if(checkboxes[1].checked){
+        //     value2 = checkboxes[1].value
+        // } else {
+        //     value2 = ``
+        // }
+        // textToDisplay9.textContent = `${value1} ${value2}`
+    })
+})
+

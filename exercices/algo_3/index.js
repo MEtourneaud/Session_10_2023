@@ -67,9 +67,6 @@ function selectTitlesFromMovies(arr) {
 
 
 
-
-
-
 // 1a. Ecrire une fonction qui prend en parametre le tableau movies et retourne un nouveau tableau de tous les réalisateur de films
 
 
@@ -95,10 +92,53 @@ function getAllDirectors(arr) {
     return arr.map((element) => element.director)
 }
 
-
 // 1b.
-console.log(getAllYears(movies))
+// console.log(getAllYears(movies))
 
 function getAllYears(arr) {
     return arr.map((element) => element.year)
 }
+
+
+
+//A l'aide d'un .map(), logger un tableau qui aura pur valeur 30, 50, 90
+
+const arrExpamples = [3, 5, 9]
+// const tens = arrExpamples.map(element => element * 10)
+// console.log(arrExpamples.map(element => element * 10))
+
+// function numbers(arr) {
+//     return arr.map((element) => element * 10)
+// }
+
+
+
+let users = [
+    {
+        name: 'Paul',
+        role: 'user'
+    },
+    {
+        name: 'Rihab',
+        role: 'admin'
+    },
+    {
+        name: 'Laurian',
+        role: 'admin'
+    },
+    {
+        name: 'Céline',
+        role: 'client'
+    }
+]
+
+let admins = users.filter(element => element.role == 'admin')
+
+// console.log(admins)
+
+let numbers = [5, 9, 12, 1, 7, 15]
+
+// A l'aide de la méthode .filter, récupérons un  nouveau tableau qui ne contient que les multiples de 3
+
+let threes = numbers.filter(element => element %3 === 0)
+console.log(threes)
