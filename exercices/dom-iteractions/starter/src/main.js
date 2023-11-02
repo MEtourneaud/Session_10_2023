@@ -178,4 +178,3 @@ checkboxes.forEach((element) => {
         // textToDisplay9.textContent = `${value1} ${value2}`
     })
 })
-
